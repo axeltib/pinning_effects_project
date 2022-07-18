@@ -1,10 +1,15 @@
-
+#include "utils.hpp"
 
 namespace ParticleSimulator {
     class Metropolis {
         public:
-            int add(int a, int b);
+            void initializeSimulator(
+                SimulationUtilities::Particle *particles, 
+                int numParticles, 
+                int particleDensity, 
+                float temperature
+            );
 
-            int subtract(int a, int b);
+            void updateParticles();
     };
 }
