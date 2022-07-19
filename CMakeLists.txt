@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16.3)
 
-project (Superconductor pinning simulation)
+project (Superconductor-pinning-simulation)
 
 include_directories(include)
 
