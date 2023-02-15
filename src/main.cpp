@@ -2,41 +2,27 @@
 #include <iostream>
 #include <math.h>
 #include <array>
+#include <string.h>
 
 #include "metropolis.hpp"
-#include "utils.hpp"
+// #include "utils.hpp"
 
-using namespace ParticleSimulator;
+// using namespace ParticleSimulator;
 // using namespace SimulationUtilities;
 
 int main() {
+    int numSteps = 10000;
 
-    /*
-    // Initializing particles
-    double n;           // Density of particles
-    double L;           // Length of unit squares  
-    const int N = 20;   // Number of particles
+    int N = 30;
+    float n = 10;
+    float T = 0.1;
 
-    n = 12;
-    L = sqrt(N / n);
-    */
+    float L = sqrt((float) N/n);
 
-    const int N = 20;
-
-    float L;
-    double n;
-
-    n = 12;
-    L = sqrt(N / n);
-
-    // Initialize the particles
-    SimulationUtilities::Particle particles[N]; 
-
-    SimulationUtilities::initializeParticles(particles, N, L);
+    ParticleSimulator::Metropolis simulator(N,  L, n, T, numSteps);
     
-    for (int i = 0; i < N; i++) {
-        std::cout << "(" << particles[i].x << ", " << particles[i].y << ")" << std::endl;
-    }
+    simulator.runSimulation();
 
+    std::cout << "Simulation finished. " << std::endl;
     return 0;
 }
